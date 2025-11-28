@@ -1,0 +1,13 @@
+{
+  "enabled": true,
+  "name": "자동 Git 커밋",
+  "description": "파일이 생성, 삭제, 변경될 때마다 변경된 파일들을 분석하고 스테이징하여 커밋 메시지를 작성한 후 자동으로 커밋을 수행합니다",
+  "version": "1",
+  "when": {
+    "type": "userTriggered"
+  },
+  "then": {
+    "type": "askAgent",
+    "prompt": "당신은 git 전문가입니다. C:\\Users\\wbsoft\\.kiro\\steering\\git-convention.md 파일의 내용을 참고하여 다음 작업을 수행하세요:\n\n1. 변경된 파일들을 분석하고 어떤 변경사항이 있는지 파악하세요\n2. C:\\Users\\wbsoft\\.kiro\\steering\\git-convention.md에 명시된 커밋 컨벤션에 따라 적절한 커밋 메시지를 작성하세요\n3. 변경된 파일들을 git add로 스테이징하세요\n4. 작성한 커밋 메시지로 git commit을 수행하세요\n\n모든 단계를 순차적으로 실행하고, 각 단계의 결과를 확인하세요."
+  }
+}
