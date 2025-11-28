@@ -1,1 +1,42 @@
-spring.application.name=distributed-lock
+spring:
+  application:
+    name: distributed-lock
+
+  datasource:
+    mysql:
+      jdbc-url: jdbc:mysql://localhost:3306/lockdb?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+      username: root
+      password: root
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      hikari:
+        maximum-pool-size: 10
+        minimum-idle: 2
+        connection-timeout: 30000
+
+    postgresql:
+      jdbc-url: jdbc:postgresql://localhost:5432/lockdb
+      username: postgres
+      password: postgres
+      driver-class-name: org.postgresql.Driver
+      hikari:
+        maximum-pool-size: 10
+        minimum-idle: 2
+        connection-timeout: 30000
+
+  data:
+    redis:
+      host: localhost
+      port: 6379
+
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+
+logging:
+  level:
+    root: DEBUG
+    org.springframework.web: DEBUG
+
+server:
+  port: 8080

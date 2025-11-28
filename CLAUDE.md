@@ -9,7 +9,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ### 지원하는 분산 락 방식
 - **MySQL**: `GET_LOCK()` / `RELEASE_LOCK()` 세션 락
 - **PostgreSQL**: Advisory Lock (`pg_advisory_lock`, `pg_try_advisory_lock`)
-- **Redis**: `SETNX` 기반 락, Redisson 등
+- **Redis**: `LuaScript` 기반 락, `SETNX` 기반 락, Redisson 등
 
 ## 빌드 및 테스트 명령어
 
