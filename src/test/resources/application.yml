@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: distributed-lock-test
+
+  # JPA 자동 설정 비활성화
+  autoconfigure:
+    exclude:
+      - org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration
+
+  data:
+    redis:
+      host: localhost
+      port: 6379
+
+logging:
+  level:
+    root: WARN
+    com.cheetsheet.distributedlock: DEBUG
+    org.testcontainers: INFO
