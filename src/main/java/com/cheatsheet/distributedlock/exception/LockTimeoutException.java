@@ -1,4 +1,4 @@
-package com.cheetsheet.distributedlock.exception;
+package com.cheatsheet.distributedlock.exception;
 
 /**
  * 락 획득 타임아웃 시 발생하는 예외

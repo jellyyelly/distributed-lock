@@ -1,6 +1,6 @@
-package com.cheetsheet.distributedlock.service;
+package com.cheatsheet.distributedlock.service;
 
-import com.cheetsheet.distributedlock.enums.LockType;
+import com.cheatsheet.distributedlock.enums.LockType;
 
 /**
  * 모든 락 구현이 따르는 공통 인터페이스

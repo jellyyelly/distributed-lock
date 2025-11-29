@@ -1,4 +1,4 @@
-package com.cheetsheet.distributedlock.config;
+package com.cheatsheet.distributedlock.config;
 
 import com.zaxxer.hikari.HikariDataSource;
 import org.springframework.boot.context.properties.ConfigurationProperties;

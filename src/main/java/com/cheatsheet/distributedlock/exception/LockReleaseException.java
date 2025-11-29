@@ -1,4 +1,4 @@
-package com.cheetsheet.distributedlock.exception;
+package com.cheatsheet.distributedlock.exception;
 
 /**
  * 락 해제 실패 시 발생하는 예외

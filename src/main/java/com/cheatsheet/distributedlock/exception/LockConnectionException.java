@@ -1,4 +1,4 @@
-package com.cheetsheet.distributedlock.exception;
+package com.cheatsheet.distributedlock.exception;
 
 /**
  * 데이터베이스 또는 캐시 서버 연결 실패 시 발생하는 예외

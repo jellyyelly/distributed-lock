@@ -1,4 +1,4 @@
-package com.cheetsheet.distributedlock.exception;
+package com.cheatsheet.distributedlock.exception;
 
 /**
  * 락 작업 중 발생하는 예외를 나타내는 커스텀 예외

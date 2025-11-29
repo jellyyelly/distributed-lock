@@ -1,11 +1,12 @@
-package com.cheetsheet.distributedlock.service;
+package com.cheatsheet.distributedlock.service;
 
-import com.cheetsheet.distributedlock.enums.LockType;
-import com.cheetsheet.distributedlock.exception.LockConnectionException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.data.redis.core.script.RedisScript;
 import org.springframework.stereotype.Service;
+
+import com.cheatsheet.distributedlock.enums.LockType;
+import com.cheatsheet.distributedlock.exception.LockConnectionException;
 
 import jakarta.annotation.PostConstruct;
 import java.util.Collections;

@@ -1,6 +1,5 @@
 package com.cheetsheet.distributedlock.service;
 
-import com.cheetsheet.distributedlock.enums.LockType;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -9,10 +8,13 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.datasource.DriverManagerDataSource;
+import org.springframework.jdbc.datasource.SingleConnectionDataSource;
 import org.testcontainers.containers.PostgreSQLContainer;
 import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
+
+import com.cheatsheet.distributedlock.enums.LockType;
+import com.cheatsheet.distributedlock.service.PostgresAdvisoryLockService;
 
 import java.util.UUID;
 
@@ -33,15 +35,18 @@ class PostgresAdvisoryLockServiceTest {
             .withPassword("postgres");
     
     private PostgresAdvisoryLockService lockService;
+    private SingleConnectionDataSource dataSource;
     private String testKey;
     
     @BeforeEach
     void setUp() {
-        DriverManagerDataSource dataSource = new DriverManagerDataSource();
+        // PostgreSQL Advisory Lock은 세션 레벨에서 관리되므로 단일 연결을 유지해야 함
+        dataSource = new SingleConnectionDataSource();
         dataSource.setDriverClassName("org.postgresql.Driver");
         dataSource.setUrl(postgres.getJdbcUrl());
         dataSource.setUsername(postgres.getUsername());
         dataSource.setPassword(postgres.getPassword());
+        dataSource.setSuppressClose(true); // 연결이 닫히지 않도록 설정
         
         JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
         lockService = new PostgresAdvisoryLockService(jdbcTemplate);
@@ -52,6 +57,10 @@ class PostgresAdvisoryLockServiceTest {
     void cleanup() {
         if (testKey != null) {
             lockService.releaseLock(testKey);
+        }
+        // 연결 정리
+        if (dataSource != null) {
+            dataSource.destroy();
         }
     }
     

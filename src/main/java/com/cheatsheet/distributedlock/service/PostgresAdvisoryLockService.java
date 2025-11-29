@@ -1,13 +1,14 @@
-package com.cheetsheet.distributedlock.service;
+package com.cheatsheet.distributedlock.service;
 
-import com.cheetsheet.distributedlock.enums.LockType;
-import com.cheetsheet.distributedlock.exception.LockConnectionException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
+
+import com.cheatsheet.distributedlock.enums.LockType;
+import com.cheatsheet.distributedlock.exception.LockConnectionException;
 
 /**
  * PostgreSQL Advisory Lock을 사용한 분산 락 구현

@@ -1,4 +1,4 @@
-package com.cheetsheet.distributedlock.enums;
+package com.cheatsheet.distributedlock.enums;
 
 /**
  * 지원하는 락 타입을 정의하는 열거형

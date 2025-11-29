@@ -1,4 +1,4 @@
-package com.cheetsheet.distributedlock.util;
+package com.cheatsheet.distributedlock.util;
 
 import org.springframework.expression.ExpressionParser;
 import org.springframework.expression.spel.standard.SpelExpressionParser;

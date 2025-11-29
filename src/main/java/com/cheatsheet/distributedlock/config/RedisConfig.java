@@ -1,4 +1,4 @@
-package com.cheetsheet.distributedlock.config;
+package com.cheatsheet.distributedlock.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

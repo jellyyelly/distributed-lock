@@ -1,4 +1,4 @@
-package com.cheetsheet.distributedlock.model;
+package com.cheatsheet.distributedlock.model;
 
 import java.time.Instant;
 
