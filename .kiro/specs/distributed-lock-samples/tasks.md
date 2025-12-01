@@ -72,30 +72,29 @@
   - **Validates: Requirements 3.3**
 
 - [x] 4.4 Property test: Redis 자동 만료
-
   - **Property 12: Redis 자동 만료**
   - **Validates: Requirements 3.4**
 
-- [ ] 5. Redis SETNX 락 서비스 구현
+- [x] 5. Redis SETNX 락 서비스 구현
   - RedisSetnxLockService 클래스 구현
   - SET NX EX 명령을 사용한 락 획득 로직 구현
   - DEL 명령을 사용한 락 해제 로직 구현
   - 기본 만료 시간 설정 로직 (타임아웃이 0이거나 지정되지 않은 경우)
   - _Requirements: 4.1, 4.2, 4.3, 4.4_
 
-- [ ] 5.1 Property test: SETNX 락 획득 및 만료 설정
+- [x] 5.1 Property test: SETNX 락 획득 및 만료 설정
   - **Property 13: SETNX 락 획득 및 만료 설정**
   - **Validates: Requirements 4.1**
 
-- [ ] 5.2 Property test: SETNX 락 해제
+- [x] 5.2 Property test: SETNX 락 해제
   - **Property 14: SETNX 락 해제**
   - **Validates: Requirements 4.2**
 
-- [ ] 5.3 Property test: SETNX 기존 키 실패
+- [x] 5.3 Property test: SETNX 기존 키 실패
   - **Property 15: SETNX 기존 키 실패**
   - **Validates: Requirements 4.3**
 
-- [ ] 5.4 Property test: SETNX 기본 만료 시간 적용
+- [x] 5.4 Property test: SETNX 기본 만료 시간 적용
   - **Property 16: SETNX 기본 만료 시간 적용**
   - **Validates: Requirements 4.4**
 
