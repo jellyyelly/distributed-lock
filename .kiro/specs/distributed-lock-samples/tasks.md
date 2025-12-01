@@ -52,40 +52,27 @@
   - **Validates: Requirements 2.4**
 
 - [-] 4. Redis Lua Script 락 서비스 구현
-
-
-
-
-
-
-
-
-
   - RedisLuaLockService 클래스 구현
   - 락 획득용 Lua 스크립트 작성 및 실행 로직 구현
   - 락 해제용 Lua 스크립트 작성 및 실행 로직 (소유자 검증 포함)
   - 고유 소유자 ID 생성 로직 (UUID 기반)
   - _Requirements: 3.1, 3.2, 3.3, 3.4_
 
-- [ ] 4.1 Property test: Lua 스크립트 원자적 락 획득
-
-
-
-
-
-
+- [x] 4.1 Property test: Lua 스크립트 원자적 락 획득
   - **Property 9: Lua 스크립트 원자적 락 획득**
   - **Validates: Requirements 3.1**
+-
 
-- [ ] 4.2 Property test: Lua 스크립트 소유자 검증 해제
+- [x] 4.2 Property test: Lua 스크립트 소유자 검증 해제
   - **Property 10: Lua 스크립트 소유자 검증 해제**
   - **Validates: Requirements 3.2**
 
-- [ ] 4.3 Property test: Redis 상호 배제
+- [x] 4.3 Property test: Redis 상호 배제
   - **Property 11: Redis 상호 배제**
   - **Validates: Requirements 3.3**
 
-- [ ] 4.4 Property test: Redis 자동 만료
+- [x] 4.4 Property test: Redis 자동 만료
+
   - **Property 12: Redis 자동 만료**
   - **Validates: Requirements 3.4**
 

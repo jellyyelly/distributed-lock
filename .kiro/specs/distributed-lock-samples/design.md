@@ -687,37 +687,69 @@ LockException (RuntimeException)
 
 ### Property-Based Testing
 
-이 프로젝트는 **jqwik** (https://jqwik.net/) 라이브러리를 사용하여 property-based testing을 구현합니다.
+이 프로젝트는 **JUnit 5**의 `@RepeatedTest`와 `@ParameterizedTest`, 그리고 **AssertJ**를 사용하여 property-based testing을 구현합니다.
 
 **설정:**
 ```gradle
-testImplementation 'net.jqwik:jqwik:1.8.2'
+testImplementation 'org.junit.jupiter:junit-jupiter:5.10.1'
+testImplementation 'org.assertj:assertj-core:3.24.2'
 ```
 
 **각 property-based test는 최소 100회 반복 실행되도록 설정합니다:**
 ```java
-@Property(tries = 100)
+@RepeatedTest(100)
 ```
 
 **Property-based test 작성 규칙:**
 1. 각 테스트는 설계 문서의 correctness property를 명시적으로 참조하는 주석을 포함해야 합니다.
 2. 주석 형식: `// Feature: distributed-lock-samples, Property {number}: {property_text}`
 3. 각 correctness property는 하나의 property-based test로 구현됩니다.
+4. 테스트 메서드 내에서 랜덤 데이터를 생성하여 다양한 입력값을 테스트합니다.
+5. **AssertJ의 유창한(fluent) API를 사용하여 가독성 높은 검증을 작성합니다.**
 
 **Generator 전략:**
-- Lock Key: 임의의 영숫자 문자열 (1-100자)
-- Timeout: 1-60초 범위의 임의의 정수
+- Lock Key: 임의의 영숫자 문자열 (1-100자) - `RandomStringUtils` 또는 `UUID` 사용
+- Timeout: 1-60초 범위의 임의의 정수 - `ThreadLocalRandom` 사용
 - Thread Count: 2-10개 범위의 임의의 정수 (동시성 테스트용)
 - Owner ID: UUID 기반 고유 식별자
 
-**Property Test 예시:**
+**Property Test 예시 (AssertJ 사용):**
 ```java
-@Property(tries = 100)
+import static org.assertj.core.api.Assertions.*;
+
+@RepeatedTest(100)
 // Feature: distributed-lock-samples, Property 4: MySQL 상호 배제
-void mysqlMutualExclusion(@ForAll @AlphaNumeric @StringLength(min = 1, max = 100) String lockKey) {
-    // Test implementation
+void mysqlMutualExclusion() {
+    // 랜덤 Lock Key 생성
+    String lockKey = UUID.randomUUID().toString().substring(0, 20);
+    int timeout = ThreadLocalRandom.current().nextInt(1, 61);
+    
+    // 첫 번째 락 획득
+    boolean firstAcquired = lockService.acquireLock(lockKey, timeout);
+    assertThat(firstAcquired).isTrue();
+    
+    // 동일한 키로 두 번째 락 획득 시도 (실패해야 함)
+    boolean secondAcquired = lockService.acquireLock(lockKey, 1);
+    assertThat(secondAcquired).isFalse();
+    
+    // 락 해제
+    boolean released = lockService.releaseLock(lockKey);
+    assertThat(released).isTrue();
+    
+    // 해제 후 다시 획득 가능해야 함
+    boolean reacquired = lockService.acquireLock(lockKey, timeout);
+    assertThat(reacquired).isTrue();
 }
 ```
+
+**AssertJ 주요 활용 패턴:**
+- `assertThat(value).isTrue()` / `isFalse()`: boolean 검증
+- `assertThat(value).isEqualTo(expected)`: 값 동등성 검증
+- `assertThat(value).isNotNull()`: null 검증
+- `assertThat(collection).hasSize(n)`: 컬렉션 크기 검증
+- `assertThat(collection).containsExactly(...)`: 컬렉션 내용 검증
+- `assertThatThrownBy(() -> ...).isInstanceOf(Exception.class)`: 예외 검증
+- `assertThat(value).satisfies(condition)`: 커스텀 조건 검증
 
 ### Integration Testing
 
