@@ -1,4 +1,4 @@
-package com.cheetsheet.distributedlock.service;
+package com.cheatsheet.distributedlock.service;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;

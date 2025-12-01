@@ -1,4 +1,4 @@
-package com.cheetsheet.distributedlock.util;
+package com.cheatsheet.distributedlock.util;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

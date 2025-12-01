@@ -1,8 +1,5 @@
-package com.cheetsheet.distributedlock.service;
+package com.cheatsheet.distributedlock.service;
 
-import com.cheetsheet.distributedlock.RedisTestConfiguration;
-import com.cheetsheet.distributedlock.config.RedisConfig;
-import com.cheetsheet.distributedlock.enums.LockType;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
@@ -12,6 +9,11 @@ import org.junit.jupiter.params.provider.ValueSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.data.redis.RedisAutoConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
+
+import com.cheatsheet.distributedlock.RedisTestConfiguration;
+import com.cheatsheet.distributedlock.config.RedisConfig;
+import com.cheatsheet.distributedlock.enums.LockType;
+
 import org.springframework.data.redis.core.StringRedisTemplate;
 
 import java.util.UUID;

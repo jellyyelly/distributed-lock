@@ -1,6 +1,6 @@
-package com.cheetsheet.distributedlock.service;
+package com.cheatsheet.distributedlock.service;
 
-import com.cheetsheet.distributedlock.enums.LockType;
+import com.cheatsheet.distributedlock.enums.LockType;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;

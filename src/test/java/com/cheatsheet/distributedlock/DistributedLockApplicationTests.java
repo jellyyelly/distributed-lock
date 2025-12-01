@@ -1,4 +1,4 @@
-package com.cheetsheet.distributedlock;
+package com.cheatsheet.distributedlock;
 
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;

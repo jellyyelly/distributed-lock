@@ -1,4 +1,4 @@
-package com.cheetsheet.distributedlock;
+package com.cheatsheet.distributedlock;
 
 import org.springframework.boot.SpringApplication;
 
