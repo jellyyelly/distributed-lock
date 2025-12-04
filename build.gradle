@@ -28,6 +28,13 @@ dependencies {
     // spring data
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation 'org.springframework.boot:spring-boot-starter-data-redis'
+    
+    // spring aop
+    implementation 'org.springframework.boot:spring-boot-starter-aop'
+    
+    // spring retry
+    implementation 'org.springframework.retry:spring-retry'
+    implementation 'org.springframework:spring-aspects'
 
     // db connector
     runtimeOnly 'com.h2database:h2'

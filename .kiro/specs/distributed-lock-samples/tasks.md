@@ -51,7 +51,7 @@
   - **Property 8: 문자열 키 해시 변환 결정성**
   - **Validates: Requirements 2.4**
 
-- [-] 4. Redis Lua Script 락 서비스 구현
+- [x] 4. Redis Lua Script 락 서비스 구현
   - RedisLuaLockService 클래스 구현
   - 락 획득용 Lua 스크립트 작성 및 실행 로직 구현
   - 락 해제용 Lua 스크립트 작성 및 실행 로직 (소유자 검증 포함)
@@ -61,7 +61,6 @@
 - [x] 4.1 Property test: Lua 스크립트 원자적 락 획득
   - **Property 9: Lua 스크립트 원자적 락 획득**
   - **Validates: Requirements 3.1**
--
 
 - [x] 4.2 Property test: Lua 스크립트 소유자 검증 해제
   - **Property 10: Lua 스크립트 소유자 검증 해제**
@@ -98,7 +97,7 @@
   - **Property 16: SETNX 기본 만료 시간 적용**
   - **Validates: Requirements 4.4**
 
-- [ ] 6. AOP Aspect 구현
+- [x] 6. AOP Aspect 구현
   - DistributedLockAspect 클래스 구현
   - @Around advice로 @DistributedLock 메서드 인터셉션
   - SpEL 표현식 파서 및 평가 로직 구현
@@ -107,23 +106,23 @@
   - try-finally를 통한 락 해제 보장
   - _Requirements: 9.1, 9.2, 9.3, 9.4, 9.5_
 
-- [ ] 6.1 Property test: AOP 메서드 인터셉션
+- [x] 6.1 Property test: AOP 메서드 인터셉션
   - **Property 19: AOP 메서드 인터셉션**
   - **Validates: Requirements 9.1**
 
-- [ ] 6.2 Property test: 락 타입 기반 서비스 선택
+- [x] 6.2 Property test: 락 타입 기반 서비스 선택
   - **Property 21: 락 타입 기반 서비스 선택**
   - **Validates: Requirements 9.3**
 
-- [ ] 6.3 Property test: 락 해제 보장
+- [x] 6.3 Property test: 락 해제 보장
   - **Property 22: 락 해제 보장**
   - **Validates: Requirements 9.4**
 
-- [ ] 6.4 Property test: 재시도 로직
+- [x] 6.4 Property test: 재시도 로직
   - **Property 23: 재시도 로직**
   - **Validates: Requirements 9.5**
 
-- [ ] 7. AOP 설정 및 Lock Service 등록
+- [x] 7. AOP 설정 및 Lock Service 등록
   - DistributedLockConfig 클래스 생성
   - @EnableAspectJAutoProxy 설정
   - 모든 Lock Service를 Map으로 주입하여 Aspect에 전달
