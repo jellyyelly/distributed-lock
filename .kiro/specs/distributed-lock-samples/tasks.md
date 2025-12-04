@@ -128,7 +128,7 @@
   - 모든 Lock Service를 Map으로 주입하여 Aspect에 전달
   - _Requirements: 9.1_
 
-- [ ] 8. 실용 예제 서비스 구현
+- [x] 8. 실용 예제 서비스 구현
   - InventoryService 클래스 구현 (재고 감소 시나리오)
   - @DistributedLock 애너테이션을 사용한 메서드 작성
   - 다양한 락 타입 사용 예제 (MySQL, PostgreSQL, Redis)
